@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 import pickle
+import os
+import uvicorn
 
 app = FastAPI(title="Kidney Disease Prediction API")
 
@@ -58,3 +60,7 @@ def predict(data: KidneyInput):
         "probabilities": proba,
         "confidence": round(confidence, 2),
     }
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
