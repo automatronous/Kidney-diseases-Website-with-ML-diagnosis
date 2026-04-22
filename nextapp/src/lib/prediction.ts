@@ -1,5 +1,4 @@
-export const predictionApiBaseUrl =
-  process.env.NEXT_PUBLIC_PREDICTION_API_BASE_URL?.trim() || "http://127.0.0.1:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export type PredictionFormData = {
   bp: string;
@@ -99,7 +98,7 @@ export async function requestPrediction(
   let response: Response;
 
   try {
-    response = await fetch(new URL("/predict", predictionApiBaseUrl).toString(), {
+    response = await fetch(`${API_URL}/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +107,7 @@ export async function requestPrediction(
     });
   } catch {
     throw new Error(
-      "Unable to connect to the prediction service. Confirm FastAPI is running at http://127.0.0.1:8000.",
+      `Unable to connect to the prediction service. Confirm the backend is running at ${API_URL}.`,
     );
   }
 
