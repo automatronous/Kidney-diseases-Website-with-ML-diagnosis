@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  /* Ultra-minimal Light Theme */
+  --background: #fafafa; 
+  --foreground: #171717; 
+  
+  --primary: #0a0a0a; 
+  --primary-foreground: #fafafa;
+  
+  --secondary: #f5f5f5; 
+  --secondary-foreground: #404040; 
+  
+  --accent: #334155; /* Subtle Slate */
+  --accent-light: #e2e8f0;
+  --accent-foreground: #ffffff;
+  
+  --border: #e5e5e5; 
+  --success: #059669; 
+  --warning: #d97706;
+  --destructive: #dc2626;
+}
+
+/* Minimalist Dark Theme */
+.dark {
+  --background: #0a0a0a; 
+  --foreground: #ededed; 
+  
+  --primary: #fafafa; 
+  --primary-foreground: #0a0a0a;
+  
+  --secondary: #171717; 
+  --secondary-foreground: #a3a3a3; 
+  
+  --accent: #cbd5e1; /* Light Slate */
+  --accent-light: #334155;
+  --accent-foreground: #0f172a;
+  
+  --border: #262626; 
+  --success: #10b981; 
+  --warning: #f59e0b;
+  --destructive: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+@layer utilities {
+  .editorial-container {
+    @apply max-w-5xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  .info-card {
+    /* Flattened layout completely: no shadows, minimal borders */
+    @apply bg-transparent border border-border rounded-xl transition-colors duration-500 overflow-hidden;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-all focus:ring-2 focus:ring-offset-2 focus:ring-primary outline-none;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center bg-transparent text-foreground border border-border px-6 py-2.5 rounded-lg font-medium hover:bg-secondary transition-all outline-none;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-primary mb-3 tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-base text-foreground/70 max-w-2xl leading-relaxed;
+  }
+  .form-input {
+    /* Minimalist input: Flat border, no roundness, subtle focus */
+    @apply w-full px-4 py-3 bg-transparent border border-border rounded-none focus:border-primary focus:ring-0 outline-none transition-colors text-sm font-medium text-foreground placeholder:text-foreground/40;
+  }
+}
