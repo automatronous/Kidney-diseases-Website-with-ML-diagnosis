@@ -13,7 +13,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://kidney-diseases-website-with-ml-diagnosis-q4gfe8e1h.vercel.app",
+        "https://kidney-diseases-website-with-ml-diagnosis-q8bsjvvf1.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
