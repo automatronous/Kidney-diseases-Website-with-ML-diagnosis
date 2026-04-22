@@ -11,10 +11,7 @@ app = FastAPI(title="Kidney Disease Prediction API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://kidney-diseases-website-with-ml-diagnosis-q8bsjvvf1.vercel.app",
-    ],
+    allow_origin_regex=r"https://kidney-diseases-website-with-ml-diagnosis(-[a-z0-9]+)?\.vercel\.app|http://localhost:3000",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
