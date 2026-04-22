@@ -5,6 +5,7 @@ import pandas as pd
 import pickle
 import os
 import uvicorn
+from pathlib import Path
 
 app = FastAPI(title="Kidney Disease Prediction API")
 
@@ -16,7 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-with open("kidney_model_v2.pkl", "rb") as f:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / "kidney_model_v2.pkl", "rb") as f:
     model = pickle.load(f)
 
 FEATURES = [
