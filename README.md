@@ -36,17 +36,6 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## ⚙️ Configuration
-
-All configuration is handled via environment variables in the root `.env.local` file.
-
-| Variable | Description | Default |
-| :--- | :--- | :--- |
-| `NEXT_PUBLIC_API_URL` | URL for the backend ML service | `http://localhost:8000` |
-| `NODE_ENV` | Environment (affects error boundaries) | `development` |
-
 ## 🏗️ Project Structure
 
 ```
