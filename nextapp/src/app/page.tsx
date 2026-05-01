@@ -68,7 +68,7 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 {diseases.map((disease) => (
-                  <DiseaseCard key={disease.id} disease={disease} />
+                  <DiseaseCard key={disease.slug} disease={disease} />
                 ))}
               </div>
             </section>
